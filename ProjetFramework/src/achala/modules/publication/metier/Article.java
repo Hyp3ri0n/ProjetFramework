@@ -1,6 +1,8 @@
 package achala.modules.publication.metier;
 import java.util.ArrayList;
 
+import achala.modules.exceptions.ModuleException;
+
 
 public class Article {
 
@@ -42,8 +44,25 @@ public class Article {
 		//APPEL DAO
 	}
 	
+	public void modifier(Article nouvelArticle) throws ModuleException {
+		if (this.getId() == nouvelArticle.getId()) {
+			//APPEL DAO
+		}
+		else {
+			throw new ModuleException("L'id du nouvel article ne correspond pas à l'id actuel de l'article.");
+		}
+	}
+	
 	public void supprimer() {
 		//APPEL DAO
+	}
+	
+	public void ajouterCommentaire(Commentaire com) {
+		this.lesCommentaires.add(com);
+	}
+	
+	public void supprimerCommentaire(Commentaire com) {
+		this.lesCommentaires.remove(com);
 	}
 	
 	/**

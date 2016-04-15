@@ -1,5 +1,7 @@
 package achala.modules.publication.metier;
 
+import achala.modules.exceptions.ModuleException;
+
 public class Commentaire {
 	
 	/**
@@ -23,6 +25,15 @@ public class Commentaire {
 	 */
 	public void creer() {
 		//APPEL DAO
+	}
+	
+	public void modifier(Commentaire nouveauCommentaire) throws ModuleException {
+		if (this.getId() == nouveauCommentaire.getId()) {
+			//APPEL DAO
+		}
+		else {
+			throw new ModuleException("L'id du nouveau commentaire ne correspond pas à l'id actuel du commentaire.");
+		}
 	}
 	
 	public void supprimer() {
